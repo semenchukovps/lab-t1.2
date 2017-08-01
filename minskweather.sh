@@ -1,7 +1,8 @@
 #!/bin/sh
 
 CITY_URL="https://pogoda.tut.by/city/minsk/"
-DELAY=$(cat ./config.ini | sed -n '1{s/[^0-9]//g;p;q}')
+
+source ./config.ini
 
 while true
 do
@@ -9,5 +10,5 @@ do
 	curl $CITY_URL 2>/dev/null \
 	| sed -n '/class="temp-i"/ {p;q}' \
 	| awk '{ print substr($0, 22, 3) }'
-	sleep $DELAY
+	sleep $update_value_sec
 done
