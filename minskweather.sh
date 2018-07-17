@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CITY_URL="https://pogoda.tut.by/city/minsk/"
 
